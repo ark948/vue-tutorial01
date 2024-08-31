@@ -1,0 +1,19 @@
+> npm init vue@latest
+> cd <projectFolder>
+> npm install
+> npm run dev
+
+package.json:
+    difference between depencencies and devDependencies:
+    devDependencies are only needed for development, but depencencies are required for both development and production
+
+vue sends everything back to client within a single javascript file,
+client will render this js file and then display the content.
+this is also called Client Side Rendered and also single page application.
+
+in single page applications, only one js file will be sent back to client that will rewrite the content when parsed by client
+
+style scoped? inside App.vue?
+because we don't want style in App.vue affect other vue files.
+by applying scoped to style of a vue file, it will only add that style to that specific vue file.
+
