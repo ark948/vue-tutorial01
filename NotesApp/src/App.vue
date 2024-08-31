@@ -4,26 +4,51 @@
   const showModal = ref(false);
   // when ever plus button is clicked, the above reference is to be set to true
   // if showModal is true, render the modal window, otherwise not
+
+  // we will bind the textarea widget to a state variable to hold the note text
+  // using 'two way binding' - and v-model directive
+  const newNote = ref("");
+
+  // the following is a state variable that will hold a list of all completed codes
+  // when a user adds a note, this list of objects will be updated (note will be pushed)
+  const notes = ref([]);
+
+  // we will iterate over this state variable and a render every object in html
+
+  function getRandomColor() {
+    return "hsl(" + Math.random() * 360 + ", 100%, 75%";
+  }
+
+  const addNote = () => {
+    notes.value.push({
+      id: Math.floor(Math.random() * 1_000_000),
+      text: newNote.value,
+      date: new Date(),
+      backgroundColor: getRandomColor(),
+    });
+    showModal.value = false;
+    newNote.value = "";
+  };
 </script>
 
 <template>
   <main>
     <div v-if="showModal" class="overlay">
       <div class="modal">
-        <textarea name="note" id="note" cols="30" rows="10"></textarea>
-        <button>Add Note</button>
+        <textarea v-model="newNote" name="note" id="note" cols="30" rows="10"></textarea>
+        <button @click="addNote">Add Note</button>
         <button class="close" @click="showModal = false">Close</button>
       </div>
     </div>
     <div class="container">
       <header>
-        <h1>Notes {{ showModal }}</h1>
+        <h1>Notes</h1>
         <button @click="showModal = true">+</button>
       </header>
-      <div class="card-container">
-        <div class="card">
-          <p class="main-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid repellat reiciendis sint soluta nobis mollitia.</p>
-          <p class="date">04/27/6853</p>
+      <div class="cards-container">
+        <div v-for="note in notes" class="card" :style="{backgroundColor: note.backgroundColor}">
+          <p class="main-text">{{ note.text }}</p>
+          <p class="date">{{ note.date.toLocaleDateString("en-US") }}</p>
         </div>
       </div>
     </div>
