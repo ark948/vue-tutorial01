@@ -12,14 +12,24 @@
   // the following is a state variable that will hold a list of all completed codes
   // when a user adds a note, this list of objects will be updated (note will be pushed)
   const notes = ref([]);
-
   // we will iterate over this state variable and a render every object in html
+
+  // a state variable for error message
+  // if this is true, then show the error (too short note or too long note)
+  const errorMessage = ref("");
 
   function getRandomColor() {
     return "hsl(" + Math.random() * 360 + ", 100%, 75%";
   }
 
   const addNote = () => {
+    // validation
+    if (newNote.value.length < 9) {
+      // if note length is less than 9, return early and do not go further
+      // update: after adding error message we no longer will use empty return
+      // instead we will set the errorMessage to true
+      return errorMessage.value = "Note needs to be at least 9 characters.";
+    }
     notes.value.push({
       id: Math.floor(Math.random() * 1_000_000),
       text: newNote.value,
@@ -28,6 +38,7 @@
     });
     showModal.value = false;
     newNote.value = "";
+    errorMessage.value = "";
   };
 </script>
 
@@ -35,7 +46,10 @@
   <main>
     <div v-if="showModal" class="overlay">
       <div class="modal">
-        <textarea v-model="newNote" name="note" id="note" cols="30" rows="10"></textarea>
+        <textarea v-model.trim="newNote" name="note" id="note" cols="30" rows="10"></textarea>
+        <p v-if="errorMessage">{{errorMessage}}</p>
+        <!-- if errorMessage is an empty string, it is falsy, so errorMessage will not show -->
+        <!-- because of v-if -->
         <button @click="addNote">Add Note</button>
         <button class="close" @click="showModal = false">Close</button>
       </div>
@@ -46,9 +60,10 @@
         <button @click="showModal = true">+</button>
       </header>
       <div class="cards-container">
-        <div v-for="note in notes" class="card" :style="{backgroundColor: note.backgroundColor}">
-          <p class="main-text">{{ note.text }}</p>
-          <p class="date">{{ note.date.toLocaleDateString("en-US") }}</p>
+        <div v-for="note in notes" class="card" :key="note.id" :style="{backgroundColor: note.backgroundColor}">
+          <!-- for note in notes array (for loop) -->
+          <p class="main-text">{{note.text}}</p>
+          <p class="date">{{note.date.toLocaleDateString("en-US")}}</p>
         </div>
       </div>
     </div>
@@ -148,5 +163,9 @@
   .modal .close {
     background-color: darkred;
     margin-top: 7px;
+  }
+
+  .modal p {
+    color: red;
   }
 </style>

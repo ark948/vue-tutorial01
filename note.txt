@@ -17,3 +17,12 @@ style scoped? inside App.vue?
 because we don't want style in App.vue affect other vue files.
 by applying scoped to style of a vue file, it will only add that style to that specific vue file.
 
+composition api > options api
+<script setup>, setup will select composition api in vue.
+
+next project will be a notes app.
+we can use vue to show a modal page.
+both html overly and modal window (div) must be created.
+but initially the modal window div is hidden.
+js code will be used to display the modal window, and dim the overlay.
+for this we will use vue directives (v-if)
