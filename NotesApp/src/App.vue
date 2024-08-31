@@ -1,18 +1,24 @@
+<script setup>
+  import {ref} from 'vue'
 
+  const showModal = ref(false);
+  // when ever plus button is clicked, the above reference is to be set to true
+  // if showModal is true, render the modal window, otherwise not
+</script>
 
 <template>
   <main>
-    <div class="overlay">
+    <div v-if="showModal" class="overlay">
       <div class="modal">
         <textarea name="note" id="note" cols="30" rows="10"></textarea>
         <button>Add Note</button>
-        <button class="close">Close</button>
+        <button class="close" @click="showModal = false">Close</button>
       </div>
     </div>
     <div class="container">
       <header>
-        <h1>Notes</h1>
-        <button>+</button>
+        <h1>Notes {{ showModal }}</h1>
+        <button @click="showModal = true">+</button>
       </header>
       <div class="card-container">
         <div class="card">
