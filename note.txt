@@ -26,3 +26,5 @@ both html overly and modal window (div) must be created.
 but initially the modal window div is hidden.
 js code will be used to display the modal window, and dim the overlay.
 for this we will use vue directives (v-if)
+
+next project: quizes website
