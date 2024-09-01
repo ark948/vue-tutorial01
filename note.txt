@@ -28,3 +28,11 @@ js code will be used to display the modal window, and dim the overlay.
 for this we will use vue directives (v-if)
 
 next project: quizes website
+
+we use colon (:) right before html attributes to make them enable the use of javascript.
+
+watch from vue is similar to useEffect in react. it will run some code, everytime a variable changes
+
+splitting components into multiple files.
+props.
+routing, 3.30.00
