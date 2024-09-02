@@ -35,4 +35,15 @@ watch from vue is similar to useEffect in react. it will run some code, everytim
 
 splitting components into multiple files.
 props.
-routing, 3.30.00
+routing, 3.30.00.
+
+vue-router package will be used for routing.
+Routing process:
+1. define router in its own js file (routing rules)
+2. import components inside it
+3. export router object
+4. import router object in main.js file and add it to app instance
+5. define the routes as components in App.vue
+6. the routes will be used to render components
+
+never use anchor tags in vue program. that will refresh the entire page and foil the purpose of single page applications.
