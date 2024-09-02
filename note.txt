@@ -59,4 +59,6 @@ Navigating to a child route using a router object.
 4.44 404 view
 problem in the video, 404View.vue is in views folder, but video is using a component called NotFoundView
 (actually the entire structure of having views and components folder is a bit weird to me)
-i will create NotFoundView in components folder.++
+i will create NotFoundView in components folder.
+
+4.47.00 adding redirects, e.g. /home to /
