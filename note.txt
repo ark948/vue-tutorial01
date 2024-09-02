@@ -53,3 +53,5 @@ each car info page will have another component containing the contact info for t
 RouterView component will make that component render all routes defined for it.
 
 Navigating to a child route using a router object.
+
+4:40:00 showing car items, only if they exist

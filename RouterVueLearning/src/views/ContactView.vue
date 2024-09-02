@@ -8,11 +8,12 @@
 </script>
 
 <template>
-    <div>
+    <div v-if="car">
         <h1>
             Contact info
         </h1>
         <p>{{ car.contact.dealer }}</p>
         <p>{{ car.contact.number }}</p>
     </div>
+    <!-- if car is not found, do not render anything -->
 </template>
