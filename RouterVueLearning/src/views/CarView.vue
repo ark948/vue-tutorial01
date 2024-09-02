@@ -1,5 +1,5 @@
 <script setup>
-    import { useRoute } from 'vue-router';
+    import { useRoute, RouterView } from 'vue-router';
     import cars from "../data/cars.json";
 
     const route = useRoute(); // access the current route
@@ -13,5 +13,7 @@
         <p>{{ car.name }}</p>
         <p>{{ car.year }}</p>
         <p>{{ car.price }}</p>
+        <!-- this RouterView will this component to render all children routes of this component -->
+        <RouterView />
     </div>
 </template>

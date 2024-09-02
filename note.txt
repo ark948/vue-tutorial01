@@ -47,3 +47,7 @@ Routing process:
 6. the routes will be used to render components
 
 never use anchor tags in vue program. that will refresh the entire page and foil the purpose of single page applications.
+
+nested route: 4.22.00
+each car info page will have another component containing the contact info for the dealer of that car
+RouterView component will make that component render all routes defined for it.
