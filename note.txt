@@ -65,3 +65,5 @@ i will create NotFoundView in components folder.
 4.47.00 adding redirects, e.g. /home to /
 
 going back to QuizzApp and adding routes and router
+
+computed composable: a duplicate value that will automatically listen to another variable, and update itself along with it
