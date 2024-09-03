@@ -1,11 +1,12 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "@/views/HomeView.vue";
+import QuizesView from "@/views/QuizesView.vue";
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
         { path: '/', name: 'quizes', component: HomeView },
-        { path: '/home', redirect: '/' },
+        { path: '/home', redirect: {name:'quizes'} },
     ]
 });
 

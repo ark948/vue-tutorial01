@@ -1,6 +1,8 @@
 <script setup>
-  import Card from './components/Card.vue'
-  import q from './data/quizes.json';
+  // this entire code was copied from App_old01.vue
+  // with some small edits
+  import Card from '../components/Card.vue'
+  import q from '../data/quizes.json';
   import {ref, watch} from 'vue';
 
   const quizes = ref(q);
@@ -24,11 +26,7 @@
 </template>
 
 <style scoped>
-  .container {
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-
+/* .container was moved to App.vue */
   header {
     margin-bottom: 10px;
     margin-top: 10px;
