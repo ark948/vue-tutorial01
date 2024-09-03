@@ -66,4 +66,7 @@ i will create NotFoundView in components folder.
 
 going back to QuizzApp and adding routes and router
 
-computed composable: a duplicate value that will automatically listen to another variable, and update itself along with it
+computed composable: a duplicate value that will automatically listen to another variable, and update itself along with it.
+
+with props we can send data from parent component to child component,
+using Signal Emitting we can send data from child component to parent component.
