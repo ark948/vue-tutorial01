@@ -39,6 +39,7 @@ routing, 3.30.00.
 
 vue-router package will be used for routing.
 Routing process:
+install vue-router
 1. define router in its own js file (routing rules)
 2. import components inside it
 3. export router object
@@ -62,3 +63,5 @@ problem in the video, 404View.vue is in views folder, but video is using a compo
 i will create NotFoundView in components folder.
 
 4.47.00 adding redirects, e.g. /home to /
+
+going back to QuizzApp and adding routes and router

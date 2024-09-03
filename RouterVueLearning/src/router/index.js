@@ -10,7 +10,7 @@ import NotFound from "@/components/NotFound.vue";
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
-        { path: "/", name: "homeo", component: HomeView },
+        { path: "/", name: "home", component: HomeView },
         { path: "/home", redirect: "/"},
         { path: "/about", name: "about", component: AboutView },
         { path: "/cars/:id", name: "car", component: CarView, children: [
